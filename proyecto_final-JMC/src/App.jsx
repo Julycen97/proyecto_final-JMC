@@ -1,11 +1,11 @@
-import NavBar from "./components/header/NavBar"
+import NavBar from "./components/header/NavBar";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Inicio from './pages/Inicio.jsx'
-import Productos from './pages/Productos.jsx'
-import Ofertas from './pages/Ofertas.jsx'
-import Contacto from './pages/Contacto.jsx'
-import Login from './pages/Login.jsx'
-import Carrito from './pages/Carrito.jsx'
+import Inicio from './pages/Inicio.jsx';
+import Productos from './pages/Productos.jsx';
+import Ofertas from './pages/Ofertas.jsx';
+import Contacto from './pages/Contacto.jsx';
+import Login from './pages/Login.jsx';
+import Carrito from './pages/Carrito.jsx';
 import Footer from "./components/footer/Footer.jsx";
 
 
@@ -28,8 +28,7 @@ function App() {
       </Router>
       <Footer />
     </>
-
-  )
+  );
 }
 
-export default App
+export default App;
