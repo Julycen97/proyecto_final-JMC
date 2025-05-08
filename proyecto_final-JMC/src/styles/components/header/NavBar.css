@@ -1,0 +1,31 @@
+#basic-navbar-nav{
+    > div{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    a{
+        width: fit-content;
+    }
+
+    > div > div {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #basic-navbar-nav{
+        > div{
+            flex-direction: column;
+        }
+
+        > div > div {
+            flex-direction: column;
+            gap: 0;
+        }
+    }
+}
