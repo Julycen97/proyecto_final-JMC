@@ -1,0 +1,23 @@
+.containerLogo{
+    background: url("./../../../../assets/react.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50%;
+    height: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin: 0;
+    padding: 0;
+
+    p{
+        font-size: xx-large;
+        font-weight: bolder;
+        margin: 0;
+        padding: 0;
+        color: white;
+        -webkit-text-stroke: 0.5px black;
+    }
+}

@@ -1,7 +1,7 @@
 function Carrito(){
     return(
         <div>
-
+            CARRITO PAPAAA
         </div>
     )
 }
