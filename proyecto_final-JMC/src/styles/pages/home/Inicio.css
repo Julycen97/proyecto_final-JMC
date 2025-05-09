@@ -1,0 +1,44 @@
+.containerInicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 20px 0;
+
+    > div {
+        transition: all 0.7s linear;
+        animation: aparecer 0.7s linear;
+    }
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        filter: blur(5px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .containerInicio{
+        > div:first-child{
+            width: 90% !important;
+
+            img{
+                width: 90% !important;
+            }
+
+            h5{
+                font-size: x-large;
+            }
+
+            p{
+                font-size: medium;
+            }
+        }
+    }
+}
