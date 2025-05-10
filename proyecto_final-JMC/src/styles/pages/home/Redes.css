@@ -24,18 +24,28 @@
         align-items: center;
         width: 90%;
 
-        i{
+        a{
             cursor: pointer;
             font-size: 5rem;
             padding: 0;
             margin: 0;
             transition: all 0.2s linear;
             text-shadow: 2px 2px 2px gray;
+            text-decoration: none;
+            color: rgb(33, 37, 41);
+            width: fit-content;
+            display: flow-root;
+
+            > i{
+                margin: 0;
+                padding: 0;
+                display: flow-root;
+            }
         }
         
-        i:hover{
+        a:hover{
             transform: scale(1.1);
-            text-shadow: 4px 4px 4px gray;
+            text-shadow: 4px 4px 4px rgba(97, 218, 251, 1);
         }
     }
 }
