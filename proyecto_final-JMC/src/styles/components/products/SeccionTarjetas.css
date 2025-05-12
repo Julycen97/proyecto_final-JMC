@@ -16,7 +16,8 @@
         margin: 0;
         padding: 5px;
         color: white;
-        text-shadow: 2px 0 4px black;
-        background: linear-gradient(to left, white, rgba(97, 218, 251, 1), white);
+        -webkit-text-stroke: 0.3px gray;
+        text-shadow: 2px 0 2px rgba(97, 218, 251, 1);
+        background: linear-gradient(to left, white, black, white);
     }
 }

@@ -23,15 +23,36 @@ function Productos() {
     }, [productos]);
 
     return (
-        <div>
-            <h4>Nuestros Productos</h4>
-            {categorias.map((cat) => {
-                const prodXcat = productos.filter((prod) => prod.category === cat);
+        <div className="containerPrincipal">
+            <div className="filtros">
+                <div>
+                    <span>Filtrar por Categoria</span>
+                    <ul>
+                        <li>A</li>
+                        <li>B</li>
+                        <li>C</li>
+                        <li>D</li>
+                    </ul>
+                </div>
 
-                return (
-                    <SeccionTarjetas key={cat} titulo={cat} props={prodXcat} />
-                );
-            })}
+                <div>
+                    <span>Ordenar por Precio</span>
+                    <ol type="I">
+                        <li>De mayor a menor</li>
+                        <li>De menor a mayor</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div className="containerProductos">
+                {categorias.map((cat) => {
+                    const prodXcat = productos.filter((prod) => prod.category === cat);
+
+                    return (
+                        <SeccionTarjetas key={cat} titulo={cat} props={prodXcat} />
+                    );
+                })}
+            </div>
         </div>
     );
 }

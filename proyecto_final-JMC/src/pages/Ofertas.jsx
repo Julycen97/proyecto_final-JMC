@@ -1,7 +1,7 @@
-function Ofertas(){
-    return(
+function Ofertas() {
+    return (
         <div>
-            OFERTAS PAPAAA
+            
         </div>
     )
 }
