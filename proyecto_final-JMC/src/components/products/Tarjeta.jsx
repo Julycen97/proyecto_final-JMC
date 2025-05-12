@@ -1,10 +1,12 @@
 import { Button, Card } from 'react-bootstrap/';
-import "./../../styles/pages/products/Tarjeta.css"
+import "./../../styles/components/products/Tarjeta.css"
 
 function Tarjeta({props}) {
     return (
         <Card style={{
             width: '15rem',
+            maxHeight: '21rem',
+            minHeight: '16rem',
             margin: '0',
             padding: '0',
             borderColor: 'rgba(97, 218, 251, 1)',
@@ -12,8 +14,10 @@ function Tarjeta({props}) {
         }}>
             <Card.Img variant="top"
                 style={{
-                    width: '50%',
+                    width: '20%',
+                    height: '20%',
                     margin: 'auto',
+                    marginTop: '5px',
                     padding: '0'
                 }}
                 src={props.image} />

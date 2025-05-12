@@ -1,25 +1,39 @@
+import SeccionTarjetas from "../components/products/SeccionTarjetas";
 import "./../styles/pages/products/Productos.css"
-import Tarjeta from "../components/products/Tarjeta";
+import { useEffect, useState } from 'react';
 
 function Productos() {
+    const [productos, setProductos] = useState([]);
+    const [categorias, setCategorias] = useState([]);
 
-    const props = {
-        "id": 1,
-        "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-        "price": 109.95,
-        "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-        "category": "men's clothing",
-        "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-        "rating": {
-            "rate": 3.9,
-            "count": 120
-        }}
+    useEffect(() => {
+        fetch('https://fakestoreapi.com/products?limit=19')
+            .then((response) => response.json())
+            .then((data) => {
+                setProductos(data);
+            })
+            .catch(error => console.log(error));
+    }, []);
 
-    return(
+    useEffect(() => {
+        //condicional evita llamadas innecesarias para setCategorias
+        if (productos.length > 0) {
+            setCategorias([...new Set(productos.map((prod) => prod.category))]);
+        }
+    }, [productos]);
+
+    return (
         <div>
-        <Tarjeta props={props} />
-        </div >
-    )
+            <h4>Nuestros Productos</h4>
+            {categorias.map((cat) => {
+                const prodXcat = productos.filter((prod) => prod.category === cat);
+
+                return (
+                    <SeccionTarjetas key={cat} titulo={cat} props={prodXcat} />
+                );
+            })}
+        </div>
+    );
 }
 
 export default Productos;
