@@ -28,10 +28,13 @@ function Productos() {
                 <div>
                     <span>Filtrar por Categoria</span>
                     <ul>
-                        <li>A</li>
-                        <li>B</li>
-                        <li>C</li>
-                        <li>D</li>
+                        {
+                            categorias.map((cat) => {
+                                return(
+                                    <li>{cat}</li>
+                                )
+                            })
+                        }
                     </ul>
                 </div>
 
