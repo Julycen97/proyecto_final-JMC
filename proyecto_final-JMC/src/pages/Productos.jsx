@@ -31,7 +31,7 @@ function Productos() {
                         {
                             categorias.map((cat) => {
                                 return(
-                                    <li>{cat}</li>
+                                    <li key={cat}>{cat}</li>
                                 )
                             })
                         }

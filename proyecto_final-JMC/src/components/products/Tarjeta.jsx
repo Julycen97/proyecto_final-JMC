@@ -1,21 +1,30 @@
 import { Button, Card, Modal } from 'react-bootstrap/';
 import { useState } from 'react';
+import PuntajeProducto from './PuntajeProducto';
 import "./../../styles/components/products/Tarjeta.css"
 
-function Tarjeta({ props }) {
+function agregarCarrito({producto}){
+    const carrito = JSON.parse(sessionStorage.getItem("carrito")) || [];
 
+    carrito.push(producto);
+
+    sessionStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function Tarjeta({ props }) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     return (
-        <Card>
+        <Card key={props.id}>
             <Card.Img variant="top" src={props.image} />
             <Card.Body className='bodyCard'>
                 <Card.Title>{props.title}</Card.Title>
+                <PuntajeProducto rating={props.rating.rate}/>
                 <span>${props.price}</span>
-                <Button variant="info">Agregar al <i className="bi bi-cart4"></i></Button>
+                <Button variant="info" onClick={() => agregarCarrito({producto: props})}>Agregar al <i className="bi bi-cart4"></i></Button>
                 <Button variant="secondary" onClick={handleShow}>Detalles <i className="bi bi-search"></i></Button>
                 
                 <Modal show={show} onHide={handleClose}>
