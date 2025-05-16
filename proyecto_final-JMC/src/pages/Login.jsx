@@ -47,7 +47,7 @@ function Login() {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formGroupPassword">
                     <Form.Label>Contraseña</Form.Label>
-                    <Form.Control type="password" placeholder="Ingrese su contraseña" value={pass} onChange={(e) => setPass(e.target.value)} />
+                    <Form.Control autoComplete='off' type="password" placeholder="Ingrese su contraseña" value={pass} onChange={(e) => setPass(e.target.value)} />
                 </Form.Group>
                 <Button variant="info" className='btnIniciarSesion' onClick={() => cargarUsuario(email, pass)}>Iniciar Sesión</Button>
             </Form>

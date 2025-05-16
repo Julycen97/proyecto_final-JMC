@@ -3,11 +3,11 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    min-height: 20vh;
+    min-height: 10rem;
     background-color: rgb(33, 37, 41);
     padding: 10px 0 0 0;
     justify-content: center;
-    position: static;
+    position: absolute;
     bottom: 0;
 
     > p{

@@ -88,9 +88,7 @@ function Tarjeta({ props }) {
                             imageHeight: "auto",
                             imageAlt: props.title,
                             confirmButtonText: "Cerrar",
-                            confirmButtonColor: "rgba(97, 218, 251, 1)",
-                            width: "30%",
-                            heightAuto: true
+                            confirmButtonColor: "rgba(97, 218, 251, 1)"
                         });
                     }}>
                     Detalles <i className="bi bi-search"></i>

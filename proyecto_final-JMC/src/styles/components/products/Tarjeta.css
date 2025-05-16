@@ -52,7 +52,7 @@
     align-items: center;
     justify-content: space-between;
 
-    div:first-child {
+    .card-title {
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
@@ -68,7 +68,7 @@
     }
 }
 
-.swal2-backdrop-show{
+.swal2-backdrop-show {
 
     h2 {
         margin: 0;
@@ -76,18 +76,45 @@
         font-size: x-large;
     }
 
-    .swal2-html-container{
+    .swal2-html-container {
         margin: 0;
         padding: 0 10px 0 10px;
         font-size: medium;
     }
 }
 
+@media screen and (max-width: 680px) {
+    .card {
+        width: 45%;
+        height: 10rem;
+
+        .bodyCard {
+            .card-title {
+                margin: 0;
+                padding: 0;
+                font-size: 1rem;
+                -webkit-line-clamp: 2;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 535px) {
-    .bodyCard {
-        .card-title {
-            margin: 0;
-            padding: 0;
+    .card {
+        width: 45%;
+        height: 10rem;
+
+        .bodyCard {
+            .card-title {
+                margin: 0;
+                padding: 0;
+                font-size: 1rem;
+                -webkit-line-clamp: 2;
+            }
+        }
+
+        .estrellas {
+            display: none;
         }
     }
 }

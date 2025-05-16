@@ -1,11 +1,9 @@
+import "./../../styles/components/products/PuntajeProducto.css"
+
 function PuntajeProducto({rating}) {
     const numEstrellas = 5;
     const todasEstrellas = Math.floor(rating);
     const mediaEstrella = rating % 1 !== 0;
-    const estilosEstrellas = {
-        margin: "0",
-        padding: "0"
-    };
 
     const estrellas = [];
 
@@ -21,7 +19,7 @@ function PuntajeProducto({rating}) {
         estrellas.push("☆");
     }
 
-    return <div style={estilosEstrellas}>{estrellas}</div>;
+    return <div className="estrellas">{estrellas}</div>;
 }
 
 export default PuntajeProducto;
