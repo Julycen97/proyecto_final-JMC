@@ -60,9 +60,6 @@ function Tarjeta({ props }) {
     const navegador = useNavigate();
     const isUser = sessionStorage.getItem("user") === "true";
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
     return (
         <Card key={props.id}>
             <Card.Img variant="top" src={props.image} />
@@ -71,27 +68,33 @@ function Tarjeta({ props }) {
                 <PuntajeProducto rating={props.rating.rate} />
                 <span>${props.price}</span>
                 {/* ONCLICK CON TERNARIO, SI NO ESTA LOGUEADO REDIRECCIONA A LOGIN, SINO DEJA AGREGAR AL CARRITO */}
-                <Button variant="info"
+                <Button
+                    variant="info"
                     onClick={() => {
                         isUser ?
                             agregarCarrito({ producto: props }) :
                             navegador('/login')
-                    }}>Agregar al <i className="bi bi-cart4"></i></Button>
-                <Button variant="secondary" onClick={handleShow}>Detalles <i className="bi bi-search"></i></Button>
-
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title className='h5'>{props.title}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Card.Img variant="top" src={props.image} />
-                        <Card.Text>{props.description}</Card.Text>
-                        <span>${props.price}</span>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>Cerrar</Button>
-                    </Modal.Footer>
-                </Modal>
+                    }}>
+                    Agregar al <i className="bi bi-cart4"></i>
+                </Button>
+                <Button
+                    variant="secondary"
+                    onClick={() => {
+                        Swal.fire({
+                            title: props.title,
+                            text: props.description,
+                            imageUrl: props.image,
+                            imageWidth: "30%",
+                            imageHeight: "auto",
+                            imageAlt: props.title,
+                            confirmButtonText: "Cerrar",
+                            confirmButtonColor: "rgba(97, 218, 251, 1)",
+                            width: "30%",
+                            heightAuto: true
+                        });
+                    }}>
+                    Detalles <i className="bi bi-search"></i>
+                </Button>
             </Card.Body>
         </Card>
     );

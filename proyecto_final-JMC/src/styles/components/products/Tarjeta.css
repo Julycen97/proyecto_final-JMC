@@ -68,41 +68,18 @@
     }
 }
 
+.swal2-backdrop-show{
 
-.modal-content {
-    width: 70%;
-    margin: auto;
-
-    .modal-body {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-
-        img {
-            width: 30%;
-        }
-
-        p,
-        span {
-            margin: 0;
-            padding: 0;
-        }
-
-        span {
-            font-weight: bolder;
-            font-size: large;
-        }
+    h2 {
+        margin: 0;
+        padding: 0;
+        font-size: x-large;
     }
 
-    .modal-footer {
-        display: flex;
-        justify-content: center;
-
-        button:hover {
-            transform: scale(1.02);
-            box-shadow: -2px 2px 4px black;
-        }
+    .swal2-html-container{
+        margin: 0;
+        padding: 0 10px 0 10px;
+        font-size: medium;
     }
 }
 

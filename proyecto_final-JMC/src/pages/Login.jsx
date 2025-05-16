@@ -14,23 +14,25 @@ function Login() {
             if ((email.includes("@") && email.includes(".com"))) {
                 sessionStorage.setItem("user", "true");
                 sessionStorage.setItem("email", email);
+                sessionStorage.setItem("pass", pass);
 
-                navegador('/administacion');
+                navegador('/administracion');
             }
             else {
                 Swal.fire({
                     icon: "error",
                     title: "Email Incorrecto",
-                    text: "Por favor verifique su correo"
+                    text: "Por favor verifique su correo",
+                    confirmButtonText: "Aceptar"
                 });
-
             }
         }
         else {
             Swal.fire({
                 icon: "error",
                 title: "Campos Incompletos",
-                text: "Por favor complete todos los campos"
+                text: "Por favor complete todos los campos",
+                confirmButtonText: "Aceptar"
             });
         }
     }

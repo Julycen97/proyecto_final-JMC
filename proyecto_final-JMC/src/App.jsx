@@ -6,6 +6,7 @@ import Ofertas from './pages/Ofertas.jsx';
 import Contacto from './pages/Contacto.jsx';
 import RutaProtegida from "./components/wrapper/RutaProtegida";
 import Administracion from "./pages/Administracion.jsx";
+import LoginProtegido from './components/wrapper/LoginProtegido.jsx';
 import Login from './pages/Login.jsx';
 import Carrito from './pages/Carrito.jsx';
 import Footer from "./components/footer/Footer.jsx";
@@ -27,7 +28,11 @@ function App() {
               <RutaProtegida>
                 <Administracion />
               </RutaProtegida>} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={
+              <LoginProtegido>
+                <Login />
+              </LoginProtegido>
+            } />
             <Route path="/carrito" element={<Carrito />} />
           </Routes>
         </div>

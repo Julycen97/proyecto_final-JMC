@@ -1,7 +1,7 @@
 function Administracion() {
 
     return (
-        <h1>Administracion</h1>
+        <h4>Administracion</h4>
     );
 }
 

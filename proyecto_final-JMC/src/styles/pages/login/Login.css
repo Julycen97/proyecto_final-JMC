@@ -35,3 +35,10 @@
         box-shadow: -2px 2px 4px white;
     }
 }
+
+.swal2-backdrop-show {
+    .swal2-styled {
+        color: white;
+        background-color: rgba(97, 218, 251, 1);
+    }
+}
