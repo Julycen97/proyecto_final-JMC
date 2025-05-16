@@ -1,6 +1,8 @@
 import { Button, Card, Modal } from 'react-bootstrap/';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PuntajeProducto from './PuntajeProducto';
+import Swal from 'sweetalert2';
 import "./../../styles/components/products/Tarjeta.css"
 
 function actualizarCarrito() {
@@ -37,16 +39,26 @@ function agregarCarrito({ producto }) {
     const carrito = JSON.parse(sessionStorage.getItem("carrito")) || [];
 
     carrito.push(producto);
-    
+
     carrito[carrito.length - 1].cantidad = 1;
 
     sessionStorage.setItem("carrito", JSON.stringify(carrito));
+
+    Swal.fire({
+        title: "Producto agregado al carrito",
+        icon: "success",
+        draggable: true,
+        confirmButtonText: "Aceptar",
+        confirmButtonColor: "rgba(97, 218, 251, 1)"
+    })
 
     actualizarCarrito();
 }
 
 function Tarjeta({ props }) {
     const [show, setShow] = useState(false);
+    const navegador = useNavigate();
+    const isUser = sessionStorage.getItem("user") === "true";
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -58,7 +70,13 @@ function Tarjeta({ props }) {
                 <Card.Title>{props.title}</Card.Title>
                 <PuntajeProducto rating={props.rating.rate} />
                 <span>${props.price}</span>
-                <Button variant="info" onClick={() => agregarCarrito({ producto: props })}>Agregar al <i className="bi bi-cart4"></i></Button>
+                {/* ONCLICK CON TERNARIO, SI NO ESTA LOGUEADO REDIRECCIONA A LOGIN, SINO DEJA AGREGAR AL CARRITO */}
+                <Button variant="info"
+                    onClick={() => {
+                        isUser ?
+                            agregarCarrito({ producto: props }) :
+                            navegador('/login')
+                    }}>Agregar al <i className="bi bi-cart4"></i></Button>
                 <Button variant="secondary" onClick={handleShow}>Detalles <i className="bi bi-search"></i></Button>
 
                 <Modal show={show} onHide={handleClose}>

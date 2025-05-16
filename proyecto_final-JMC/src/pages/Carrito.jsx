@@ -1,19 +1,9 @@
 import { Table } from "react-bootstrap";
 
-function recuperarCarrito(){
-    return JSON.parse(sessionStorage.getItem("carrito"));
-}
-
-function carritoVacio(){
-    const carroVacio = [{
-    }]
-
-    return carroVacio;
-}
-
 function Carrito() {
 
-    const carrito =  recuperarCarrito() || carritoVacio();
+    const carrito = JSON.parse(sessionStorage.getItem("carrito")) || [];
+    const isUser = sessionStorage.getItem("user") === "true";
 
     return (
         <Table responsive="sm">
@@ -28,7 +18,7 @@ function Carrito() {
                 </tr>
             </thead>
             <tbody>
-                {
+                {isUser ?
                     carrito.map((prod) => {
                         return (
                             <tr key={prod.id}>
@@ -43,7 +33,10 @@ function Carrito() {
                                 </td>
                             </tr>
                         )
-                    })
+                    }):
+                    <tr>
+                        <td colSpan="6">Debe <a href="/login">iniciar sesión</a> para agregar productos al carrito</td>
+                    </tr>
                 }
             </tbody>
         </Table>

@@ -1,8 +1,15 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import './../../styles/components/header/NavBar.css'
 
 function NavBar() {
+    const navegador = useNavigate();
+    const isUser = sessionStorage.getItem("user") === "true";
+    const cerrarSesion = () => {
+        sessionStorage.removeItem("user");
+        navegador('/login');
+    }
+
     return (
         <Navbar expand="lg" bg="dark" data-bs-theme="dark">
             <Container>
@@ -24,10 +31,15 @@ function NavBar() {
                             <Nav.Link as={Link} to="/productos">Productos</Nav.Link>
                             <Nav.Link as={Link} to="/ofertas">Ofertas</Nav.Link>
                             <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
+                            {isUser &&
+                                <Nav.Link as={Link} to="/administracion">Administración</Nav.Link>
+                            }
                         </div>
                         <div>
-                            {/* ver como lograr que, al iniciar sesion, cambie el logo y texto */}
-                            <Nav.Link as={Link} to="/login"><i className="bi bi-box-arrow-in-right"></i> Iniciar Sesión</Nav.Link>
+                            {isUser ?
+                                <Nav.Link as={Link} to="/login" onClick={cerrarSesion}><i className="bi bi-box-arrow-in-left"></i> Cerrar Sesion</Nav.Link> :
+                                <Nav.Link as={Link} to="/login"><i className="bi bi-box-arrow-in-right"></i> Iniciar Sesión</Nav.Link>
+                            }
                             <Nav.Link as={Link} to="/carrito"><i className="bi bi-cart4"></i></Nav.Link>
                         </div>
                     </Nav>
