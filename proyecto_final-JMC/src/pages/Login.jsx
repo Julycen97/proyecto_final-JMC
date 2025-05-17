@@ -38,19 +38,21 @@ function Login() {
     }
 
     return (
-        <div className='loguearse'>
-            <h4>Iniciar Sesión</h4>
-            <Form>
-                <Form.Group className="mb-3" controlId="formGroupEmail">
-                    <Form.Label>Correo</Form.Label>
-                    <Form.Control type="email" placeholder="Ingrese su correo" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formGroupPassword">
-                    <Form.Label>Contraseña</Form.Label>
-                    <Form.Control autoComplete='off' type="password" placeholder="Ingrese su contraseña" value={pass} onChange={(e) => setPass(e.target.value)} />
-                </Form.Group>
-                <Button variant="info" className='btnIniciarSesion' onClick={() => cargarUsuario(email, pass)}>Iniciar Sesión</Button>
-            </Form>
+        <div className='containerLogin'>
+            <div className='loguearse'>
+                <h4>Iniciar Sesión</h4>
+                <Form>
+                    <Form.Group className="mb-3" controlId="formGroupEmail">
+                        <Form.Label>Correo</Form.Label>
+                        <Form.Control required type="email" placeholder="Ingrese su correo" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupPassword">
+                        <Form.Label>Contraseña</Form.Label>
+                        <Form.Control required autoComplete='off' type="password" placeholder="Ingrese su contraseña" value={pass} onChange={(e) => setPass(e.target.value)} />
+                    </Form.Group>
+                    <Button variant="info" className='btnIniciarSesion' onClick={() => cargarUsuario(email, pass)}>Iniciar Sesión</Button>
+                </Form>
+            </div>
         </div>
     );
 }

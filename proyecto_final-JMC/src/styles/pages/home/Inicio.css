@@ -4,10 +4,26 @@
     align-items: center;
     justify-content: center;
     margin: 20px 0 20px 0;
+    gap: 30px;
 
     > div {
         transition: all 0.7s linear;
         animation: aparecer 0.7s linear;
+    }
+
+    .containerLogo{
+        width: 100%;
+        min-height: 25rem;
+        background: linear-gradient(to top,rgba(255, 255, 255, 0.300), rgba(33, 37, 41, 0.400), rgba(33, 37, 41, 0.400) , rgba(255, 255, 255, 0.300)), url("./../../../assets/react.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        > p{
+            font-size: 10rem;
+            text-shadow: 2px 0 4px black;
+            -webkit-text-stroke: unset;
+        }
     }
 }
 
@@ -38,6 +54,13 @@
 
             p{
                 font-size: medium;
+            }
+        }
+
+        .containerLogo{
+            min-height: 15rem;
+            > p{
+                font-size: xx-large;
             }
         }
     }

@@ -59,14 +59,6 @@ function Productos() {
                         }
                     </ul>
                 </div>
-
-                <div>
-                    <span>Ordenar por Precio</span>
-                    <ol type="I">
-                        <li>De mayor a menor</li>
-                        <li>De menor a mayor</li>
-                    </ol>
-                </div>
             </div>
 
             <div className="containerProductos">
