@@ -47,9 +47,8 @@ function agregarCarrito({ producto }) {
     Swal.fire({
         title: "Producto agregado al carrito",
         icon: "success",
-        draggable: true,
-        confirmButtonText: "Aceptar",
-        confirmButtonColor: "rgba(97, 218, 251, 1)"
+        showConfirmButton: false,
+        timer: 1200
     })
 
     actualizarCarrito();

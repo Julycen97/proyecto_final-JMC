@@ -1,6 +1,6 @@
 import SeccionTarjetas from "../components/products/SeccionTarjetas";
 import { useEffect, useState } from 'react';
-import { Spinner } from "react-bootstrap";
+import { Spinner, Alert, Button } from "react-bootstrap";
 import "./../styles/pages/products/Productos.css"
 
 function Productos() {
@@ -9,13 +9,28 @@ function Productos() {
     const [cargando, setCargando] = useState(true);
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products?limit=19')
+        const url = 'https://fakestoreapi.com/products?limit=19';
+        fetch(url)
             .then((response) => response.json())
             .then((data) => {
                 setProductos(data);
                 setCargando(false);
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                const [show, setShow] = useState(true);
+
+                if (show) {
+                    return (
+                        <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+                            <Alert.Heading>Vaya! Hubo un error</Alert.Heading>
+                            <p>
+                                Te recomiendo revisar tu conexion a internet, la URL a la que intentas
+                                acceder es {url} y el error es {error}
+                            </p>
+                        </Alert>
+                    );
+                }
+            });
     }, []);
 
     useEffect(() => {

@@ -6,7 +6,7 @@ function Carrito() {
     const isUser = sessionStorage.getItem("user") === "true";
 
     return (
-        <Table responsive="sm">
+        <Table responsive="sm" style={{textAlign: 'center'}}>
             <thead>
                 <tr>
                     <th>Cod. Producto</th>
