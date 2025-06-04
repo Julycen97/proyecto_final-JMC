@@ -1,10 +1,14 @@
 import { Button, Card } from 'react-bootstrap/';
 import { useNavigate } from 'react-router-dom';
 import PuntajeProducto from './PuntajeProducto';
+import { useContext} from 'react';
+import { cartContext } from '../wrapper/CartContext';
+import Swal from 'sweetalert2';
 import "./../../styles/components/products/Tarjeta.css"
 
 function Tarjeta({ props }) {
     const navegador = useNavigate();
+    const { agregarAlCarrito } = useContext(cartContext);
     const isUser = sessionStorage.getItem("user") === "true";
 
     return (
@@ -14,12 +18,11 @@ function Tarjeta({ props }) {
                 <Card.Title>{props.title}</Card.Title>
                 <PuntajeProducto rating={props.rating.rate} />
                 <span>${props.price}</span>
-                {/* ONCLICK CON TERNARIO, SI NO ESTA LOGUEADO REDIRECCIONA A LOGIN, SINO DEJA AGREGAR AL CARRITO */}
                 <Button
                     variant="info"
                     onClick={() => {
                         isUser ?
-                            agregarCarrito({ producto: props }) :
+                            agregarAlCarrito(props) :
                             navegador('/login')
                     }}>
                     Agregar al <i className="bi bi-cart4"></i>

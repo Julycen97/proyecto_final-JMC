@@ -19,13 +19,14 @@
 
 @media screen and (max-width: 992px) {
     #basic-navbar-nav{
+
         > div{
-            flex-direction: column;
+            flex-direction: row;
+            padding: 5px;
         }
 
         > div > div {
-            flex-direction: column;
-            gap: 0;
+            flex-direction: row;
         }
     }
 }

@@ -1,6 +1,6 @@
 import SeccionTarjetas from "../components/products/SeccionTarjetas";
 import { useEffect, useState } from 'react';
-import { Spinner, Alert, Button } from "react-bootstrap";
+import { Spinner, Alert } from "react-bootstrap";
 import "./../styles/pages/products/Productos.css"
 
 function Productos() {

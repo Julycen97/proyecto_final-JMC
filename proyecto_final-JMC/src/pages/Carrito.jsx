@@ -1,8 +1,9 @@
 import { Table } from "react-bootstrap";
+import { useContext } from "react";
+import { cartContext } from "../components/wrapper/CartContext";
 
 function Carrito() {
-
-    const carrito = JSON.parse(sessionStorage.getItem("carrito")) || [];
+    const { cart, agregarAlCarrito, eliminarDelCarrito, incrementarCantidad, decrementarCantidad } = useContext(cartContext);
     const isUser = sessionStorage.getItem("user") === "true";
 
     return (
@@ -19,7 +20,7 @@ function Carrito() {
             </thead>
             <tbody>
                 {isUser ?
-                    carrito.map((prod) => {
+                    cart.map((prod) => {
                         return (
                             <tr key={prod.id}>
                                 <td>{prod.id}</td>
@@ -28,8 +29,8 @@ function Carrito() {
                                 <td>${prod.price}</td>
                                 <td>{prod.cantidad}</td>
                                 <td>
-                                    <button className="btn btn-success">+</button>
-                                    <button className="btn btn-danger">-</button>
+                                    <button className="btn btn-success" onClick={() => incrementarCantidad(prod.id)}>+</button>
+                                    <button className="btn btn-danger" onClick={() => decrementarCantidad(prod.id)}>-</button>
                                 </td>
                             </tr>
                         )
