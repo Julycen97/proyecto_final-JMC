@@ -43,6 +43,40 @@ function CartContext({ children }) {
         }
     };
 
+    const vaciarCarrito = () => {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: "Desea vaciar el carrito?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Aceptar",
+            cancelButtonText: "Cancelar",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire({
+                    title: "Carrito Vaciado!",
+                    icon: "success"
+                });
+
+                setCart([]);
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Operación Cancelada",
+                    icon: "error"
+                });
+            }
+        });
+    };
+
     return (
         <cartContext.Provider
             value={{
@@ -51,7 +85,8 @@ function CartContext({ children }) {
                 agregarAlCarrito,
                 eliminarDelCarrito,
                 incrementarCantidad,
-                decrementarCantidad
+                decrementarCantidad,
+                vaciarCarrito
             }}>
             {children}
         </cartContext.Provider>
