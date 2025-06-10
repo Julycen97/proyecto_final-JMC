@@ -1,4 +1,6 @@
 #basic-navbar-nav{
+    text-align: center;
+    
     > div{
         width: 100%;
         display: flex;
@@ -19,6 +21,9 @@
 
 @media screen and (max-width: 992px) {
     #basic-navbar-nav{
+        >.navbar-nav{
+            gap: 10px;
+        }
 
         > div{
             flex-direction: row;
@@ -29,4 +34,19 @@
             flex-direction: row;
         }
     }
+}
+
+@media screen and (max-width: 520px) {
+    #basic-navbar-nav{
+        >.navbar-nav{
+            flex-direction: row;
+
+            >div{
+                flex-direction: column;
+                justify-content: center;
+                gap: 0;
+            }
+        }
+    }
+    
 }

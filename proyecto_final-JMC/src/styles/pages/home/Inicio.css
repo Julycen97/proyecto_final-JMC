@@ -12,14 +12,15 @@
     }
 
     .containerLogo{
-        width: 100%;
+        width: 80%;
         min-height: 25rem;
-        background: linear-gradient(to top,rgba(255, 255, 255, 0.300), rgba(33, 37, 41, 0.400), rgba(33, 37, 41, 0.400) , rgba(255, 255, 255, 0.300)), url("./../../../assets/react.svg");
+        background: radial-gradient(circle, rgba(28, 28, 28, 0.212), rgba(245, 245, 245, 0.533), white), url("./../../../assets/react.svg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
         cursor:default;
 
+        /* linear-gradient(to top,rgba(255, 255, 255, 0.300), rgba(33, 37, 41, 0.400), rgba(33, 37, 41, 0.400) , rgba(255, 255, 255, 0.300)) */
         > p{
             font-size: 10rem;
             text-shadow: 2px 0 4px black;

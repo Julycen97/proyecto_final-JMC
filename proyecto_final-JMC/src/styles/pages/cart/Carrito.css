@@ -1,0 +1,23 @@
+@media screen and (max-width: 535px) {
+    .table {
+        thead {
+            tr {
+                th:first-child, th:nth-child(3) {
+                    display: none;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                #cod {
+                    display: none;
+                }
+
+                td:nth-child(3) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
