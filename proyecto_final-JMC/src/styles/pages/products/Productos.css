@@ -30,6 +30,11 @@
                 color: grey;
                 margin-left: 10px;
                 transition: all 0.2s linear;
+
+                >a{
+                    text-decoration: none;
+                    color: inherit;
+                }
             }
 
             li:hover{

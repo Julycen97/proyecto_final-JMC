@@ -68,7 +68,7 @@ function Productos() {
                         {
                             categorias.map((cat) => {
                                 return (
-                                    <li key={cat}>{cat}</li>
+                                    <li key={cat}><a href={`#${cat}`}>{cat}</a></li>
                                 )
                             })
                         }

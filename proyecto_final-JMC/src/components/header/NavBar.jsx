@@ -10,6 +10,16 @@ function NavBar() {
         navegador('/login');
     }
 
+    window.addEventListener("scroll", function () {
+        const nav = document.querySelector(".bg-dark");
+        
+        if (window.scrollY > 0) {
+            nav.classList.add("scrolled");
+        } else {
+            nav.classList.remove("scrolled");
+        }
+    })
+
     return (
         <Navbar expand="lg" bg="dark" data-bs-theme="dark">
             <Container>

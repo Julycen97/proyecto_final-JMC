@@ -1,52 +1,78 @@
-#basic-navbar-nav{
+.bg-dark {
+    height: fit-content;
+    transition: all .4s linear;
+}
+
+#basic-navbar-nav {
     text-align: center;
-    
-    > div{
+
+    >div {
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
-    a{
+    a {
         width: fit-content;
     }
 
-    > div > div {
+    >div>div {
         display: flex;
         flex-direction: row;
         gap: 15px;
     }
 }
 
+.scrolled {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    height: 5rem;
+    background: rgba(0, 0, 0, 0.694) !important;
+    backdrop-filter: blur(10px);
+    animation: aparecer .4s linear;
+    transition: all .4s linear;
+}
+
 @media screen and (max-width: 992px) {
-    #basic-navbar-nav{
-        >.navbar-nav{
+    #basic-navbar-nav {
+        >.navbar-nav {
             gap: 10px;
         }
 
-        > div{
+        >div {
             flex-direction: row;
             padding: 5px;
         }
 
-        > div > div {
+        >div>div {
             flex-direction: row;
         }
     }
 }
 
 @media screen and (max-width: 520px) {
-    #basic-navbar-nav{
-        >.navbar-nav{
+    #basic-navbar-nav {
+        >.navbar-nav {
             flex-direction: row;
 
-            >div{
+            >div {
                 flex-direction: column;
                 justify-content: center;
                 gap: 0;
             }
         }
     }
-    
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
