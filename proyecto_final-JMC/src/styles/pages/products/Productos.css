@@ -55,5 +55,26 @@
     > span{
         font-size: xx-large;
         font-weight: bolder;
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .containerPrincipal{
+        flex-direction: column;
+
+        .filtros{
+            width: 100%;
+            border-right: none;
+            border-bottom: 1px solid black;
+            text-align: center;
+            padding: 10px;
+
+            > div > ul{
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
     }
 }
