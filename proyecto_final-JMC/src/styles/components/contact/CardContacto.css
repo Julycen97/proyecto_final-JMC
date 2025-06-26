@@ -1,0 +1,24 @@
+.tarjetaContacto{
+    height: fit-content;
+    box-shadow: none;
+
+    >.card-header{
+        border-bottom: none;
+    }
+    
+    >.card-body{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        >.h5{
+            width: 100%;
+        }
+    }
+}
+
+.tarjetaContacto:hover{
+    animation: none;
+    transform: none;
+}
