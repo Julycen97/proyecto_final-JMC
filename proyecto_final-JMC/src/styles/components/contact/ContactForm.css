@@ -1,0 +1,36 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    border-color: rgb(13, 202, 240);
+
+    label{
+        font-weight: bolder;
+        width: fit-content;
+    }
+
+    >button{
+        width: fit-content;
+        margin: auto;
+    }
+}
+
+.gracias{
+    width: 70%;
+    margin: auto;
+    padding: 10px;
+    font-weight: bolder;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    border-color: rgb(13, 202, 240);
+    margin-bottom: 20px;
+}

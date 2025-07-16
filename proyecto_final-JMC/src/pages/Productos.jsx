@@ -7,13 +7,16 @@ function Productos() {
     const [productos, setProductos] = useState([]);
     const [categorias, setCategorias] = useState([]);
     const [cargando, setCargando] = useState(true);
+    const [productosAdmin, setProductosAdmin] = useState([]);
+
+    localStorage.getItem("productosAdmin") != null? setProductosAdmin(JSON.parse(localStorage.getItem("productosAdmin"))) : [];
 
     useEffect(() => {
         const url = 'https://fakestoreapi.com/products?limit=19';
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
-                setProductos(data);
+                setProductos([...data, ...productosAdmin]);
                 setCargando(false);
             })
             .catch(error => {
@@ -37,6 +40,8 @@ function Productos() {
         //condicional evita llamadas innecesarias para setCategorias
         if (productos.length > 0) {
             setCategorias([...new Set(productos.map((prod) => prod.category))]);
+
+            productosAdmin.length > 0 && setCategorias([...categorias, "products admin"]);
         }
     }, [productos]);
 

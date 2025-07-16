@@ -8,3 +8,13 @@
     gap: 20px;
     margin-bottom: 20px;
 }
+
+.borTop::before{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 98%;
+    content: "";
+    border: 1.5px dashed grey;
+}
