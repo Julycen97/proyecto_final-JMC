@@ -4,6 +4,14 @@ import InputGroup from 'react-bootstrap/InputGroup';
 function CargarProducto({ producto = {}, onCancelarModal, onConfirmarModal }) {
     const tieneProp = Object.keys(producto).length > 0;
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        /*TERMINAR LOGICA PARA VERIFICAR SI ES EDICION O AGREGADO, TAMBIÉN PARA OBTENER LA LISTA ACTUAL Y ACTUALIZARLA CON LOCALSTORAGE Y ENVIARLA*/ 
+
+        onConfirmarModal();
+    }
+
     return (
         <Form>
             <Form.Group className="mb-3" controlId="formGroupEmail">
@@ -29,7 +37,7 @@ function CargarProducto({ producto = {}, onCancelarModal, onConfirmarModal }) {
                 </InputGroup>
             </Form.Group>
             <div>
-                <Button variant="success" onClick={onConfirmarModal}>{tieneProp  ? 'Agregar' : 'Editar'}</Button>
+                <Button variant="success" onClick={() => onSubmit(event)}>{!tieneProp  ? 'Agregar' : 'Editar'}</Button>
                 <Button variant="danger" onClick={onCancelarModal}>Cancelar</Button>
             </div>
         </Form>
