@@ -7,6 +7,12 @@ function CargarProducto({ producto = {}, onCancelarModal, onConfirmarModal }) {
     const onSubmit = (e) => {
         e.preventDefault();
 
+        producto.title = e.target[0].value;
+        producto.price = e.target[1].value;
+        producto.description = e.target[2].value;
+        producto.rate.rating = e.target[3].value;
+        producto.category = "products admin";
+
         onConfirmarModal();
     }
 
