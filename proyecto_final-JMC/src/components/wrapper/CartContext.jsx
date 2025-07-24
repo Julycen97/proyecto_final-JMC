@@ -77,6 +77,40 @@ function CartContext({ children }) {
         });
     };
 
+    const comprar = () => {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success ms-2",
+                cancelButton: "btn btn-danger me-2"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: "Desea finalizar con la compra?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Aceptar",
+            cancelButtonText: "Cancelar",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire({
+                    title: "Compra realizada!",
+                    icon: "success"
+                });
+
+                setCart([]);
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Operación Cancelada",
+                    icon: "error"
+                });
+            }
+        });
+    };
+
     return (
         <cartContext.Provider
             value={{
@@ -86,7 +120,8 @@ function CartContext({ children }) {
                 eliminarDelCarrito,
                 incrementarCantidad,
                 decrementarCantidad,
-                vaciarCarrito
+                vaciarCarrito,
+                comprar
             }}>
             {children}
         </cartContext.Provider>

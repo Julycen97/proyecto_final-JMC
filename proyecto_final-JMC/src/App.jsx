@@ -11,35 +11,38 @@ import Login from './pages/Login.jsx';
 import Carrito from './pages/Carrito.jsx';
 import Footer from "./components/footer/Footer.jsx";
 import CartContext from './components/wrapper/CartContext.jsx'
+import ProductsAdmin from './components/wrapper/ProductsAdmin.jsx';
 
 
 function App() {
 
   return (
     <>
-      <CartContext>
-        <Router>
-          <div>
-            <NavBar />
-            <Routes>
-              <Route path="/" element={<Inicio />} />
-              <Route path="/productos" element={<Productos />} />
-              <Route path="/ofertas" element={<Ofertas />} />
-              <Route path="/contacto" element={<Contacto />} />
-              <Route path="/administracion" element={
-                <RutaProtegida>
-                  <Administracion />
-                </RutaProtegida>} />
-              <Route path="/login" element={
-                <LoginProtegido>
-                  <Login />
-                </LoginProtegido>
-              } />
-              <Route path="/carrito" element={<Carrito />} />
-            </Routes>
-          </div>
-        </Router>
-      </CartContext>
+      <ProductsAdmin>
+        <CartContext>
+          <Router>
+            <div>
+              <NavBar />
+              <Routes>
+                <Route path="/" element={<Inicio />} />
+                <Route path="/productos" element={<Productos />} />
+                <Route path="/ofertas" element={<Ofertas />} />
+                <Route path="/contacto" element={<Contacto />} />
+                <Route path="/administracion" element={
+                  <RutaProtegida>
+                    <Administracion />
+                  </RutaProtegida>} />
+                <Route path="/login" element={
+                  <LoginProtegido>
+                    <Login />
+                  </LoginProtegido>
+                } />
+                <Route path="/carrito" element={<Carrito />} />
+              </Routes>
+            </div>
+          </Router>
+        </CartContext>
+      </ProductsAdmin>
       <Footer />
     </>
   );

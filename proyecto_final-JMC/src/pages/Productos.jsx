@@ -1,5 +1,6 @@
 import SeccionTarjetas from "../components/products/SeccionTarjetas";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { productsAdminContext } from "../components/wrapper/ProductsAdmin";
 import { Spinner, Alert } from "react-bootstrap";
 import "./../styles/pages/products/Productos.css"
 
@@ -7,16 +8,14 @@ function Productos() {
     const [productos, setProductos] = useState([]);
     const [categorias, setCategorias] = useState([]);
     const [cargando, setCargando] = useState(true);
-    const [productosAdmin, setProductosAdmin] = useState([]);
-
-    localStorage.getItem("productosAdmin") != null? setProductosAdmin(JSON.parse(localStorage.getItem("productosAdmin"))) : [];
+    const { products } = useContext(productsAdminContext);
 
     useEffect(() => {
         const url = 'https://fakestoreapi.com/products?limit=19';
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
-                setProductos([...data, ...productosAdmin]);
+                setProductos([...data, ...products]);
                 setCargando(false);
             })
             .catch(error => {
@@ -39,9 +38,11 @@ function Productos() {
     useEffect(() => {
         //condicional evita llamadas innecesarias para setCategorias
         if (productos.length > 0) {
-            setCategorias([...new Set(productos.map((prod) => prod.category))]);
-
-            productosAdmin.length > 0 && setCategorias([...categorias, "products admin"]);
+            if(products.length > 0){
+                setCategorias([...new Set(productos.map((prod) => prod.category)), "products admin"]);
+            } else{
+                setCategorias([...new Set(productos.map((prod) => prod.category))]);
+            }
         }
     }, [productos]);
 
